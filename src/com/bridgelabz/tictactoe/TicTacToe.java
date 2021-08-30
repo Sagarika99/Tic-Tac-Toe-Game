@@ -36,7 +36,7 @@ public class TicTacToe {
 			return false;
 	}
 	
-	public int placeMarker(char[] baord, char playerInput) {
+	public char[] placeMarker(char[] baord, char playerInput) {
 		Scanner sc = new Scanner(System.in);
 		int position = 0;
 		while(true) {
@@ -44,11 +44,13 @@ public class TicTacToe {
 			position = sc.nextInt();
 			if (position>0 || position<=9) {
 				if(ifEmpty(board,position)) {
+					board[position] = playerInput;
 					break;
 				}
 			}			
 		}
-		return position;		
+		return board;		
 	}
+
 	
 }
