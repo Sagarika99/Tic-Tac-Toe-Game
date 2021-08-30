@@ -51,6 +51,21 @@ public class TicTacToe {
 		}
 		return board;		
 	}
+	
+	public void toss() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" Press 1.Heads or 2.Tails");
+		int choice = sc.nextInt();
+		int rand = (int)(Math.random()*10)%2;
+		if(choice == rand) {
+			System.out.println("Player will go first");
+		}
+		else {
+			System.out.println("Computer will go first");
+		}
+		
+		
+	}
 
 	
 }
