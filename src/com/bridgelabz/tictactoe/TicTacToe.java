@@ -62,10 +62,21 @@ public class TicTacToe {
 		}
 		else {
 			System.out.println("Computer will go first");
-		}
-		
-		
+		}		
 	}
-
 	
+	public boolean checkWinner(char[] baord, char playerInput) {
+		return (board[1] == playerInput && board[2] == playerInput && board[3] == playerInput) || //top line
+			(board[4] == playerInput && board[5] == playerInput && board[6] == playerInput) || //middle line
+			(board[7] == playerInput && board[8] == playerInput && board[9] == playerInput) || //bottom line
+			
+			(board[1] == playerInput && board[5] == playerInput && board[9] == playerInput) || //diagonal line
+			(board[3] == playerInput && board[5] == playerInput && board[7] == playerInput) || //diagonal line
+			
+			(board[1] == playerInput && board[4] == playerInput && board[7] == playerInput) || //first down line
+			(board[2] == playerInput && board[5] == playerInput && board[8] == playerInput) || //second down line
+			(board[3] == playerInput && board[6] == playerInput && board[9] == playerInput); // third down line
+
+			
+	}	
 }
