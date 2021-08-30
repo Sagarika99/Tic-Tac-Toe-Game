@@ -1,5 +1,6 @@
 package com.bridgelabz.tictactoe;
 import java.util.Scanner;
+import java.util.Random;
 
 public class TicTacToe {
 
@@ -36,15 +37,15 @@ public class TicTacToe {
 			return false;
 	}
 	
-	public char[] placeMarker(char[] baord, char playerInput) {
+	public char[] placeMarker(char[] board, char playerChoice) {
 		Scanner sc = new Scanner(System.in);
-		int position = 0;
+		int playerMove = 0;
 		while(true) {
 			System.out.println("Enter your choice from 1 to 9: ");
-			position = sc.nextInt();
-			if (position>0 || position<=9) {
-				if(ifEmpty(board,position)) {
-					board[position] = playerInput;
+			playerMove = sc.nextInt();
+			if (playerMove>0 || playerMove<=9) {
+				if(ifEmpty(board,playerMove)) {
+					board[playerMove] = playerChoice;
 					break;
 				}
 			}			
@@ -52,20 +53,22 @@ public class TicTacToe {
 		return board;		
 	}
 	
-	public void toss() {
+	public int toss() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println(" Press 1.Heads or 2.Tails");
 		int choice = sc.nextInt();
 		int rand = (int)(Math.random()*10)%2;
 		if(choice == rand) {
 			System.out.println("Player will go first");
+			return 1;
 		}
 		else {
 			System.out.println("Computer will go first");
+			return 0;
 		}		
 	}
 	
-	public boolean checkWinner(char[] baord, char playerInput) {
+	public boolean checkWinner(char[] board, char playerInput) {
 		return (board[1] == playerInput && board[2] == playerInput && board[3] == playerInput) || //top line
 			(board[4] == playerInput && board[5] == playerInput && board[6] == playerInput) || //middle line
 			(board[7] == playerInput && board[8] == playerInput && board[9] == playerInput) || //bottom line
@@ -75,8 +78,29 @@ public class TicTacToe {
 			
 			(board[1] == playerInput && board[4] == playerInput && board[7] == playerInput) || //first down line
 			(board[2] == playerInput && board[5] == playerInput && board[8] == playerInput) || //second down line
-			(board[3] == playerInput && board[6] == playerInput && board[9] == playerInput); // third down line
-
-			
-	}	
+			(board[3] == playerInput && board[6] == playerInput && board[9] == playerInput); // third down line			
+	}
+	
+	public char[] computerInput(char[] board, char computerChoice) {
+		Random rand = new Random();
+		Scanner sc = new Scanner(System.in);
+		int computerMove = 0;
+		while(true) {
+			computerMove = rand.nextInt(9)+1;
+			if(ifEmpty(board,computerMove)) {
+				board[computerMove] = computerChoice;
+				break;
+			}
+		}
+		return board;
+	}
+	
+	public boolean tie() {
+		for (int i=1; i<10;i++) {
+			if (board[i] == '-') {
+				return true;
+			}
+		}
+		return false;
+	}
 }

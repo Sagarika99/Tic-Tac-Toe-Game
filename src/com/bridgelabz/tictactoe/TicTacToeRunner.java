@@ -15,11 +15,43 @@ public class TicTacToeRunner {
 		}
 		System.out.println("Player Choice: "+playerChoice);
 		System.out.println("Computer Choice: "+computerChoice);
+		System.out.println();
 		
 		gamePlay.showBoard();
+		System.out.println();
 		
-		board = gamePlay.placeMarker(board,playerChoice);
-		gamePlay.showBoard();
-		gamePlay.checkWinner(board, playerChoice);
+		int chance = gamePlay.toss();
+		while(true) {
+			if (gamePlay.tie()){
+				if(chance == 1) {
+					board = gamePlay.placeMarker(board, playerChoice);
+					gamePlay.showBoard();
+					System.out.println();
+					if (gamePlay.checkWinner(board, playerChoice)) {
+						System.out.println("Player has Won");
+						break;
+					}
+					else {
+						chance = 0;
+					}
+				}
+				else {
+					board = gamePlay.computerInput(board, computerChoice);
+					gamePlay.showBoard();
+					if(gamePlay.checkWinner(board, computerChoice)) {
+						System.out.println("Computer has Won");
+						break;
+					}
+					else {
+						chance = 1;
+					}
+				}
+			}
+		else {
+			System.out.println("It is a tie");
+			break;
+		}
+	}
+
 	}
 }
