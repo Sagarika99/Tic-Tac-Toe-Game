@@ -29,6 +29,27 @@ public class TicTacToe {
 		System.out.println(board[7]+ "|" +board[8]+ "|" +board[9]);
 	}
 	
+	public boolean ifEmpty (char[] board, int position) {
+		if (board[position] == '-')
+			return true;
+		else
+			return false;
+	}
+	
+	public int placeMarker(char[] baord, char playerInput) {
+		Scanner sc = new Scanner(System.in);
+		int position = 0;
+		while(true) {
+			System.out.println("Enter your choice from 1 to 9: ");
+			position = sc.nextInt();
+			if (position>0 || position<=9) {
+				if(ifEmpty(board,position)) {
+					break;
+				}
+			}			
+		}
+		return position;		
+	}
 
 	
 }

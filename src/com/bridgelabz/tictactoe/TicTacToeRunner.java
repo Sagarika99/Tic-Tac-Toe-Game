@@ -18,6 +18,6 @@ public class TicTacToeRunner {
 		
 		gamePlay.showBoard();
 		
-		//int position = gamePlay.placeMarker(board,playerChoice);
+		int position = gamePlay.placeMarker(board,playerChoice);
 	}
 }
