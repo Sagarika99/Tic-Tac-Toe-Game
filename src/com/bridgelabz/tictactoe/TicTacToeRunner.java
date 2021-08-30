@@ -20,5 +20,6 @@ public class TicTacToeRunner {
 		
 		board = gamePlay.placeMarker(board,playerChoice);
 		gamePlay.showBoard();
+		gamePlay.checkWinner(board, playerChoice);
 	}
 }
