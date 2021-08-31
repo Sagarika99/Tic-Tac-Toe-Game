@@ -103,4 +103,98 @@ public class TicTacToe {
 		}
 		return false;
 	}
+	
+	public char[] checkComputerWin(char[] board, char computerChoice, char playerChoice) {
+		//first line
+		if ((board[1] == board[2] && board[2] == computerChoice && ifEmpty(board,3)) || (board[1] == board[2] && board[2] == playerChoice && ifEmpty(board,3))) {			
+			board[3] = computerChoice;
+		}
+		else if ((board[1] == board[3] && board[3] == computerChoice && ifEmpty(board,2)) || (board[1] == board[3] && board[3] == playerChoice && ifEmpty(board,2))) {
+			board[2] = computerChoice;
+		}
+		else if ((board[2] == board[3] && board[3] == computerChoice && ifEmpty(board,1)) || (board[2] == board[3] && board[3] == playerChoice && ifEmpty(board,1))) {
+			board[1] = computerChoice;
+		}
+		
+		//second line
+		else if ((board[4] == board[5] && board[5] == computerChoice && ifEmpty(board,6)) || (board[4] == board[5] && board[5] == playerChoice && ifEmpty(board,6))) {
+			board[6] = computerChoice;
+		}
+		else if ((board[4] == board[6] && board[6] == computerChoice && ifEmpty(board,5)) || (board[4] == board[6] && board[6] == playerChoice && ifEmpty(board,5))) {
+			board[5] = computerChoice;
+		}
+		else if ((board[5] == board[6] && board[6] == computerChoice && ifEmpty(board,4)) || (board[5] == board[6] && board[6] == playerChoice && ifEmpty(board,4))) {
+			board[4] = computerChoice;
+		}
+		
+		//third line
+		else if ((board[7] == board[8] && board[8] == computerChoice && ifEmpty(board,9)) || (board[7] == board[8] && board[8] == playerChoice && ifEmpty(board,9))) {
+			board[9] = computerChoice;
+		}
+		else if ((board[7] == board[9] && board[9] == computerChoice && ifEmpty(board,8)) || (board[7] == board[9] && board[9] == playerChoice && ifEmpty(board,8))) {
+			board[8] = computerChoice;
+		}
+		else if ((board[8] == board[9] && board[9] == computerChoice && ifEmpty(board,7)) || (board[8] == board[9] && board[9] == playerChoice && ifEmpty(board,7))) {
+			board[7] = computerChoice;
+		}
+		
+		//first column
+		else if ((board[1] == board[4] && board[4] == computerChoice && ifEmpty(board,7)) || (board[1] == board[4] && board[4] == playerChoice && ifEmpty(board,7))) {
+			board[7] = computerChoice;
+		}
+		else if ((board[4] == board[7] && board[7] == computerChoice && ifEmpty(board,1)) || (board[4] == board[7] && board[7] == playerChoice && ifEmpty(board,1))) {
+			board[1] = computerChoice;
+		}
+		else if ((board[1] == board[7] && board[7] == computerChoice && ifEmpty(board,4)) || (board[1] == board[7] && board[7] == playerChoice && ifEmpty(board,4))) {
+			board[4] = computerChoice;
+		}
+		
+		//second column
+		else if ((board[2] == board[5] && board[5] == computerChoice && ifEmpty(board,8)) || (board[2] == board[5] && board[5] == playerChoice && ifEmpty(board,8))) {
+			board[8] = computerChoice;
+		}
+		else if ((board[5] == board[8] && board[8] == computerChoice && ifEmpty(board,2)) || (board[5] == board[8] && board[8] == playerChoice && ifEmpty(board,2))) {
+			board[2] = computerChoice;
+		}
+		else if ((board[2] == board[8] && board[8] == computerChoice && ifEmpty(board,5)) || (board[2] == board[8] && board[8] == playerChoice && ifEmpty(board,5))) {
+			board[5] = computerChoice;
+		}
+		
+		//third column
+		else if ((board[3] == board[6] && board[6] == computerChoice && ifEmpty(board,9)) || (board[3] == board[6] && board[6] == playerChoice && ifEmpty(board,9))) {
+			board[9] = computerChoice;
+		}
+		else if ((board[6] == board[9] && board[9] == computerChoice && ifEmpty(board,3)) || (board[6] == board[9] && board[9] == playerChoice && ifEmpty(board,3))) {
+			board[3] = computerChoice;
+		}
+		else if ((board[3] == board[9] && board[9] == computerChoice && ifEmpty(board,6)) || (board[3] == board[9] && board[9] == playerChoice && ifEmpty(board,6))) {
+			board[6] = computerChoice;
+		}
+		
+		//first diagonal
+		else if ((board[1] == board[5] && board[5] == computerChoice && ifEmpty(board,9)) || (board[1] == board[5] && board[5] == playerChoice && ifEmpty(board,9))) {
+			board[9] = computerChoice;
+		}
+		else if ((board[1] == board[9] && board[9] == computerChoice && ifEmpty(board,5)) || (board[1] == board[9] && board[9] == playerChoice && ifEmpty(board,5))) {
+			board[5] = computerChoice;
+		}
+		else if ((board[5] == board[9] && board[9] == computerChoice && ifEmpty(board,1)) || (board[5] == board[9] && board[9] == playerChoice && ifEmpty(board,1))) {
+			board[1] = computerChoice;
+		}
+		
+		//second diagonal
+		else if ((board[5] == board[7] && board[7] == computerChoice && ifEmpty(board,3)) || (board[5] == board[7] && board[7] == playerChoice && ifEmpty(board,3))) {
+			board[3] = computerChoice;
+		}
+		else if ((board[3] == board[5] && board[5] == computerChoice && ifEmpty(board,7)) || (board[3] == board[5] && board[5] == playerChoice && ifEmpty(board,7))) {
+			board[7] = computerChoice;
+		}
+		else if ((board[3] == board[7] && board[7] == computerChoice && ifEmpty(board,5)) || (board[3] == board[7] && board[7] == playerChoice && ifEmpty(board,5))) {
+			board[5] = computerChoice;
+		}
+		else {
+			computerInput(board,computerChoice);
+		}
+		return board;
+	}
 }
