@@ -91,6 +91,10 @@ public class TicTacToe {
 				board[computerMove] = computerChoice;
 				break;
 			}
+			else if(board[1] == '-' || board[3] == '-' || board[5] == '-' || board[9] == '-') {
+				checkCorner(board);
+			}
+			
 		}
 		return board;
 	}
@@ -195,6 +199,22 @@ public class TicTacToe {
 		else {
 			computerInput(board,computerChoice);
 		}
+		return board;
+	}
+	
+	public char[] checkCorner(char[] board) {
+			if(board[1] == '-') {
+				board[1] = computerChoice;
+			}
+			else if(board[1] == '-') {
+				board[3] = computerChoice;
+			}
+			else if(board[1] == '-') {
+				board[5] = computerChoice;
+			}
+			else {
+				board[9] = computerChoice;
+			}
 		return board;
 	}
 }
