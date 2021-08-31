@@ -36,8 +36,10 @@ public class TicTacToeRunner {
 					}
 				}
 				else {
-					board = gamePlay.computerInput(board, computerChoice);
+					board = gamePlay.checkComputerWin(board,computerChoice,playerChoice);
+					//board = gamePlay.computerInput(board, computerChoice);
 					gamePlay.showBoard();
+					System.out.println();
 					if(gamePlay.checkWinner(board, computerChoice)) {
 						System.out.println("Computer has Won");
 						break;
