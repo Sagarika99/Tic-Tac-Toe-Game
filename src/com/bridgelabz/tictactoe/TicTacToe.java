@@ -91,10 +91,28 @@ public class TicTacToe {
 				board[computerMove] = computerChoice;
 				break;
 			}
-			else if(board[1] == '-' || board[3] == '-' || board[5] == '-' || board[9] == '-') {
+			else if(board[1] == '-' || board[3] == '-' || board[7] == '-' || board[9] == '-') {
 				checkCorner(board);
 			}
-			
+			else if (board[5] == '-') {
+				board[5] = computerChoice;
+			}
+			else {
+				if (board[2] == '-' || board[4] == '-' || board[6] == '-'|| board[8] == '-') {
+					if(board[2] == '-') {
+						board[2] = computerChoice;
+					}
+					else if(board[4] == '-') {
+						board[4] = computerChoice;
+					}
+					else if(board[6] == '-') {
+						board[6] = computerChoice;
+					}
+					else {
+						board[8] = computerChoice;
+					}
+				}
+			}
 		}
 		return board;
 	}
@@ -206,11 +224,11 @@ public class TicTacToe {
 			if(board[1] == '-') {
 				board[1] = computerChoice;
 			}
-			else if(board[1] == '-') {
+			else if(board[3] == '-') {
 				board[3] = computerChoice;
 			}
-			else if(board[1] == '-') {
-				board[5] = computerChoice;
+			else if(board[7] == '-') {
+				board[7] = computerChoice;
 			}
 			else {
 				board[9] = computerChoice;
