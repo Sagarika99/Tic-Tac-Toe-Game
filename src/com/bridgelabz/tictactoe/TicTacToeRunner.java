@@ -1,8 +1,10 @@
 package com.bridgelabz.tictactoe;
+import java.util.Scanner;
 
 public class TicTacToeRunner {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 		TicTacToe gamePlay = new TicTacToe();
 		char[] board = gamePlay.createboard();
 		char playerChoice = gamePlay.playerInput();
@@ -54,6 +56,17 @@ public class TicTacToeRunner {
 			break;
 		}
 	}
+		
+	System.out.println("Game Over!");
+	System.out.println("Do you wish to play again?");
+	String choice = sc.next();
+	if (choice.equals("yes")) {
+		main(args);
+	}
+	else {
+		System.out.println("Thank you for playing");
+	}
+	
 
 	}
 }
